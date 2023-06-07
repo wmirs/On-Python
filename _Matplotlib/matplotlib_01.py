@@ -1,3 +1,0 @@
-"""
-conda install matpoltlib
-"""
