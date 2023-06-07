@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 # print(mplfm.findSystemFonts())
 
 # Get the location of the config file.
-# print(mpl.matplotlib_fname())
-# print(mpl.get_cachedir())
+print(mpl.matplotlib_fname())
+print(mpl.get_cachedir())
 
 # 内置样式
 print(plt.style.available)
