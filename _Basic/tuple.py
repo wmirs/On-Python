@@ -1,32 +1,39 @@
-# 元组：固定长度、不可变的Python序列。用逗号分割序列值
-tuple1 = 3, 4, 5                              # 元组: (3, 4, 5), 长度: 3
-print(f"元组: {tuple1}, 长度: {len(tuple1)}")
-# 用圆括号括起来，创建较为复杂的元组表达式
-tuple2 = (1, 2, 3), (4, 5, 6)                 # 元组: ((1, 2, 3), (4, 5, 6)), 长度: 2
-print(f"元组: {tuple2}, 长度: {len(tuple2)}")
-# tuple()函数将任意序列或迭代器转换为元组
-tuple3 = tuple([1, 2, 3])
-tuple4 = tuple("hello")
-print(f"元组: {tuple3}, 长度: {len(tuple3)}")   # 元组: (1, 2, 3), 长度: 3
-print(f"元组: {tuple4}, 长度: {len(tuple4)}")   # 元组: ('h', 'e', 'l', 'l', 'o'), 长度: 5
-# 通过"[$index]"可以获取元组中对应索引位置的元素
-print(tuple3[-1])  # 3
-print(tuple4[1])   # e
-# "+"运算符可以将元组拼接成更长的元组
-tuple5 = tuple3 + tuple4
-print(f"元组: {tuple5}, 长度: {len(tuple5)}")   # 元组: (1, 2, 3, 'h', 'e', 'l', 'l', 'o'), 长度: 8
-# "*"运算符生成含有多份拷贝的元组
-tuple6 = tuple4 * 3
-print(f"元组: {tuple4}, 长度: {len(tuple4)}")   # 元组: ('h', 'e', 'l', 'l', 'o'), 长度: 5
-print(f"元组: {tuple6}, 长度: {len(tuple6)}")   # 元组: ('h', 'e', 'l', 'l', 'o', 'h', 'e', 'l', 'l', 'o', 'h', 'e', 'l', 'l', 'o'), 长度: 15
+# 元组：固定长度、不可变的Python对象序列
+tuple1 = 3, 4, 5
+tuple2 = (1, 2), (3, 4)
+print(f"{tuple1}")  # Tuple: (3, 4, 5)
+print(f"{tuple2}")  # ((1, 2), (3, 4))
+# tuple()函数
+print(tuple([1, 2, 3]))      # (1, 2, 3)
+print(tuple("Hello World"))  # ('H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd')
+# [$index]
+tuple3 = (1, 2, 3, 4, 5, 6)
+print(f"index_0={tuple3[0]}, index_3={tuple3[3]}, index_-1={tuple3[-1]}") # index_0=1, index_3=4, index_-1=6
+# +, * 运算符
+tuple4_1, tuple4_2 = (1, 2, 3), (4, 5, 6)
+print(tuple4_1 + tuple4_2)   # (1, 2, 3, 4, 5, 6)
+print(tuple4_1 * 3)          # (1, 2, 3, 1, 2, 3, 1, 2, 3)
+# count()方法
+print((1, 2, 2, 3, 2, 4).count(2))  # 3
+print(((1, 2), (3, 4), (1, 2), (2, 1), (5, 6)).count((1, 2))) # 2
 
-# 元组拆包
-tuple7 = (1, 2, 3)
-a, b, c = tuple7
-print(f"a={a}, b={b}, c={c}")  # a=1, b=2, c=3
-tuple8 = (1, 2, (3, 4))
-h, i, (j, k) = tuple8
-print(f"h={h}, i={i}, j={j}, k={k}")
-# 交换变量名
+# 拆包：将元组型的表达式赋值给变量，Python会对等号右边的值进行拆包。
+# 变量交换
 a, b = 1, 2
-print(f"a={a},b={b}")
+print(f"a={a}, b={b}")  # a=1, b=2
+b, a = a, b
+print(f"a={a}, b={b}")  # a=2, b=1
+# 遍历元组或列表组成的序列
+seq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+"""
+1, 2, 3
+4, 5, 6
+7, 8, 9
+"""
+for (a, b, c) in seq:
+    print(f"{a}, {b}, {c}")
+# *rest语法
+x1, y1, z1, *rest = (11, 12, 13, 14, 15, 16)
+print(f"x={x1}, y={y1}, z={z1}, rest={rest}")  # x=11, y=12, z=13, rest=[14, 15, 16]
+x2, y2, z2, *_ = (1, 2, 3, 4, 5, 6)
+print(f"x={x2}, y={y2}, z={z2}")               # x=1, y=2, z=3
