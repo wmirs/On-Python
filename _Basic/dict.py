@@ -46,3 +46,43 @@ print(favorite_languages.values())
 print(list(favorite_languages.values()))
 # {'Java', 'Go', 'Python'}
 print(set(favorite_languages.values()))
+
+#update()方法
+dict1 = {"remilia": "scarlet", "flanre": "scarlet", "cirno": "sakura", "address": "koumakan"}
+dict2 = {"ages": [500, 495, 9]}
+print(dict1)
+dict1.update(dict2)
+print(dict1)
+
+dict_0 = {}
+for key, value in zip(range(5), reversed(range(5))):
+    dict_0[key] = value
+dict_1 = dict(zip(range(5), reversed(range(5))))
+print(dict_0)
+print(dict_1)
+
+dict_2 = {"remilia": 500, "flandre": 495, "cirno": 9}
+if "sakura" in dict_2:
+    print(f"sakura={dict_2['sakura']}")
+else:
+    print("'sakura' not exists.")
+print(dict_2.get("sakura"))
+print(dict_2.get("sakura", 18))
+if "sakura" in dict_2:
+    poped_age_1 = dict_2.pop("sakura")
+else:
+    poped_age_1 = 3
+poped_age_2 = dict_2.pop("sakura", 28)
+print(f"poped_1 = {poped_age_1}, poped_2 = {poped_age_2}")
+
+
+words = ["apple", "bat", "bar", "atom", "book"]
+by_letter = {}
+for word in words:
+    letter = word[0]
+    # 更新
+    by_letter.setdefault(letter, []).append(word)
+print(by_letter)
+
+dict_3 = {123: "123", 123.0: "123.0"}
+print(dict_3)
