@@ -1,3 +1,43 @@
+import re
+
+def my_function(x, y, z=1.5):
+    if z > 1.0:
+        return z * (x + y)
+    else:
+        return z / (x + y)
+
+print(my_function(2, 3))
+print(my_function(2, 3, 1))
+
+a = None
+def func_global_exam():
+    global a
+    a = [i ** 2 for i in range(1, 11)]
+    print(a)
+func_global_exam()
+print(a)
+
+def func_return_multiple_values(x):
+    # 返回的是元组(x, x**2, x**3)
+    return x, x**2, x**3
+# 元组拆包
+val, square, cube = func_return_multiple_values(3)
+print(f"value={val}, square={square}, cube={cube}")   # value=3, square=9, cube=27
+
+# 去除空格，移除标点符号，调整适当的大小写。
+def clean_string(str):
+    str = str.strip()
+    str = re.sub("[!#?]", "", str)
+    str = str.title()
+    return str
+
+strings = ["  Alabama  ", "Georgia! ", "Georgia", "georgia", "FlOrIda", "south     carolina##", "West virginia?  "]
+print([clean_string(str) for str in strings])
+
+
+
+
+
 # def定义函数，:结尾
 def greet_user(username):
     """文档字符串(docstring)注释"""
